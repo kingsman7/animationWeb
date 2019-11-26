@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./style.css">
+  <title>Transform rotate CSS</title>
+</head>
+<body>
+  <div class="container">
+    <div class="cuadrado" id="circulo">Hola mundo</div>
+  </div>
+  <script>
+    const $circulo = document.getElementById('circulo');
+    //circulo.addEventListener('nombre del evento', funcion)
+    $circulo.addEventListener('animationend', (event)=>{
+      console.log(event.animationName)
+      if (event.animationName === 'rebote'){
+        $circulo.style.animationName ='cuadrado escalera'
+        $circulo.style.animationDuration = '3s'
+      }
+    })
+  </script>
+</body>
+</html>

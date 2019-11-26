@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./style.css">
+  <title>Transform rotate CSS</title>
+</head>
+<body>
+  <div class="container">
+    <div class="pelota" id="pelota"></div>
+    <div class="buttons">
+      <button class="btn" id="play">play</button>
+      <button class="btn" id="pause">pause</button>
+      <button class="btn" id="stop">stop</button>
+      <button class="btn" id="reverse">reverse</button>
+    </div>
+  </div>
+  <script>
+   const $pelota = document.getElementById('pelota')
+
+   const animation = $pelota.animate([
+     /* @keyframe  array*/
+     {
+       transform:'translateX(0)'
+     },
+     {
+       transform:'translateX(500px)'
+     }
+   ],
+     /* opciones */
+   {
+      /* duration:duracion
+      Delay:tiempo que se merora en avanzar
+      duration: direccion a donde quiero que vaya
+      easing:aceleracion
+      iterations:iteraciones 
+      fill: como quiero que termine la animacion
+      iterationStart: donde quiero que comienze mi animación (0-1)
+      enDelay: tiempo que el elemento espera despues que se cabe la animacion */
+      duration:1000,
+      delay:1000,
+      direction:'normal',
+      easing:'linear',
+      iterations:Infinity,
+      fill: 'forwards',
+      iterationStart:.5,
+      /* enDelay: 0.5 */
+
+   })
+   const $play = document.getElementById('play')
+   const $pause = document.getElementById('pause')
+   const $stop = document.getElementById('stop')
+   const $reverse = document.getElementById('reverse')
+
+   $play.addEventListener('click', (event)=>{
+     animation.play()
+   })
+   $pause.addEventListener('click', (event)=>{
+      animation.pause()
+   })
+   $stop.addEventListener('click', (event)=>{
+      animation.cancel()
+   })
+   $reverse.addEventListener('click', (event)=>{
+      animation.reverse()
+   })
+  </script>
+</body>
+</html>

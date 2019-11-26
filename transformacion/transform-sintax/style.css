@@ -1,0 +1,60 @@
+/* SINTAXIS DE TRANSICIONES:
+•	Transition: Para agregar un efecto
+•	transition-delay: Es el tiempo de espera para que ocurra la transición, especifica un retraso (en segundos) para el efecto de transición.
+•	transition-duration: Es el tiempo que dura la transición.
+•	**transition-property: **¿Dónde quieres aplicar la transición?, Si no colocas las propiedades a la cual quieres añadirle una transición, CSS tomará todas las propiedades que tenga a su disposición y la cambiará.
+•	transition-timing-function: Especifica la curva de velocidad del efecto de transición.
+La propiedad de función de sincronización de transición puede tener los siguientes valores:
+	ease - especifica un efecto de transición con un inicio lento, luego rápido, luego finaliza lentamente (esto es predeterminado)
+	linear - especifica un efecto de transición con la misma velocidad de principio a fin
+	ease-in - especifica un efecto de transición con un inicio lento
+	ease-out - especifica un efecto de transición con un final lento
+	ease-in-out - especifica un efecto de transición con inicio y fin lentos
+	cubic-bezier(n,n,n,n) - le permite definir sus propios valores en una función de cubic-bezier
+ */
+body{
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.pelota {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:#fff;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  /* transition-property: width; */
+  /* transition-duration: 1000ms; */
+  /* transition-delay: 1s; */
+  /* transition-timing-function: ease; */
+  /* transition: propiedad, diracion, delay, timing-function */
+  transition:1s;
+  position: absolute;
+}
+.pelota.a{
+  background: red;
+  left: 0;
+}
+.pelota.b{
+  background: blue;
+  right: 0;
+}
+
+.canasta{
+  border:1px solid blueviolet;
+  position: relative;
+  height: 100px;
+  width:100%;
+  /* transform:rotar | sesgar| poscicion| tamaño: */
+  transform: rotate(5deg) skew(10deg) translate(100px) scale(1.5)
+}
+
+.canasta:hover .pelota.a {
+  left: calc(50% - 100px)
+}
+.canasta:hover .pelota.b {
+  right:calc(50% - 100px)
+}

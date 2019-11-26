@@ -1,0 +1,83 @@
+/* rotate y punto de origen */
+body{
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  color:#fff;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.container{
+  border: 1px solid blueviolet;
+  width: 100%;
+}
+
+.container:hover .cuadrado{
+  animation-play-state: paused;
+}
+
+.cuadrado{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  /* animaciones basicas */
+/*   animation: (nombre tiempo) */
+  animation-name: Animecuadrado, rebote;
+  animation-duration: 3s, 0.3s;
+  /* avanzadas */
+  animation-delay: 1s;
+  /* contar cuantas veces se repita la animacion */
+  animation-iteration-count: infinite;
+  /* cambiar el suavisado */
+  /* curva de bezier */
+  /* animation-timing-function: ease; aceleracion suave, default */
+  /* animation-timing-function: ease-in; inicio lento fin rapido */ 
+  /* animation-timing-function: ease-out; al reves */ 
+   /* animation-timing-function:  ease-in-out; lento a los estremos */
+   /* animation-timing-function:  ease-in-out; */
+   /* animation-timing-function: linear; velocidad constante */
+   /* animation-timing-function: linear; */
+   /* animacion por pasos */
+   /* animation-timing-function: steps(5); */
+   /* curva de bezier */
+   /* https://cubic-bezier.com/ */
+    /* animation-timing-function: cubic-bezier(1,-0.48,0,1.41); */
+    animation-timing-function:linear, ease-in-out ;
+
+  /* direccion de la animacion */
+  animation-direction: alternate;
+  /* cambiar el valor final  */
+  /* animation-fill-mode: forwards; => toma la ultima forma */
+  /* animation-play-state: paused; */
+  width: 200px;
+  height: 200px;
+  background: #7dc900;
+  margin: 20px;
+  transition: .3s;
+}
+
+@keyframes Animecuadrado{
+  /* 0% estado inicial;
+  100% estado final; */
+  0%{
+    left: calc(0% - 20px);
+  }
+  100%{
+    left: calc(100% - 220px);
+  }
+}
+@keyframes rebote{
+  /* 0% estado inicial;
+  100% estado final; */
+  from{
+    color: #fff;
+    transform: translateY(0)
+  }
+  to{
+    color: blue;
+    transform: translateY(100px) scale(1,0.8);
+  }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .like{
+            cursor: pointer;
+            width: 100px;
+            height: 100px;
+            border-top-left-radius: 50px;
+            background-image: url(corazon.png);
+        }
+
+        .like.is-liked{
+            animation-name: like;
+            animation-duration: 1s;
+            animation-timing-function: steps(28);
+            background-position: right;
+        }
+
+        @keyframes like{
+            0%{
+                background-position: right;
+            }
+            100%{
+                background-position: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="tweet-box">
+        <div class="like" id="likeH"></div>
+    </div>
+    <script>
+        var $like = document.getElementById('likeH');
+        $like.addEventListener('click', ()=>{
+            $like.classList.toggle('is-liked')
+        })
+    </script>
+</body>
+</html>

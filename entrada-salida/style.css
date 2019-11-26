@@ -1,0 +1,27 @@
+/* rotate y punto de origen */
+body{
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: #234050;
+}
+
+.cuadrado{
+  width: 200px;
+  height: 200px;
+  background: #97c93e;
+  margin: 40px auto;
+  /* animation: nombre tiempo estado */
+  animation: animationIn 2s;
+}
+
+@keyframes animationIn{
+  0%{
+
+  }
+  100%{
+
+  }
+}
+
