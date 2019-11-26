@@ -25,7 +25,7 @@
       border:none;
       padding: 20px;
       text-align: center;
-      animation: showModal 1s ease;
+      animation: showModal 1s ease forwards;
     }
     .modal-header{
       position: relative;
@@ -79,20 +79,39 @@
       }
       75%{
         transform: translateY(45px);
-        
       }
       100%{
         transform: translatey(0)
       }
     }
+    @keyframes hiddenModal{
+      0%{
+        transform: translateY(0px)
+      }
+      65%{
+        transform: translateY(45px)
+      }
+      75%{
+        transform: translateY(25px);
+      }
+      100%{
+        transform: translatey(-2000px)
+      }
+    }
+    .check {
+    width: 70px;
+    transform: translateX(-21px);
+}
   </style>
 </head>
 <body>
-  <div class="modal-container">
-    <div class="modal-sucess">
+  <div class="modal-container" id='container'>
+    <div class="modal-sucess" id="evModal">
       <div class="modal-header">
         <div class="circle-modal">
-          <div class="check-modal"></div>
+          <figure class="check-modal">
+            <img src="../assets/svg/done-24px.svg" alt="check" class="check">
+          </figure>
         </div>
         <h2 class="title-modal">
           Awesome!
@@ -105,11 +124,23 @@
         </p>
       </div>
       <div class="modal-footer">
-        <button class="btn-modal">
+        <button class="btn-modal" id="btn">
           ok
         </button>
       </div>
     </div>
   </div>
+  <script>
+    const $container = document.getElementById('container')
+    const $evModal = document.getElementById('evModal')
+    const $btn = document.getElementById('btn');
+    $btn.addEventListener('click', (ev)=>{
+      $evModal.style.animationName = 'hiddenModal';
+      $evModal.style.animationFillMode = 'forwards';
+      $container.style.display = 'flex';
+      $container.style.background = 'none'
+      $container.style.transition = '2s'
+    })
+  </script>
 </body>
 </html>
