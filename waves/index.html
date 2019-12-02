@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Notification</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <style>
+    body {
+      background: url('platzi.png');
+      background-size: 100%;
+      margin: 0;
+    }
+    .container{
+      height: 500px;
+      background: turquoise;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .content{
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+      font-size: 2em;
+      color: rgba(255, 255, 255, .8)
+    }
+    .wave{
+      width: 2402px;
+      height: 427px;
+      background: url(../assets/wave/waves.png) center bottom no-repeat;
+      position: absolute;
+      left: -180px;
+      bottom: 0;;
+      animation: 5s wave infinite alternate ease-in-out;
+    }
+    .waves{
+      position: absolute;
+      bottom: -135px;
+      height: 527px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .wave.a{
+      background-position: 0 -854px;
+    }
+    .wave.b{
+      animation-delay: .5s;
+      background-position: 0 -427px;
+    }
+    .wave.c{
+      animation-delay: 1.2s;
+      background-position: 0 0px;
+    }
+    
+
+    @keyframes wave{
+      0%{
+        transform: translateX(0px);
+      }
+      50%{
+        transform: translate(-80px , 30px);
+      }
+      100%{
+        transform: translateX(160px) translateY(60px);
+      }
+    }
+   
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <h1>Hola mundo!</h1>
+      <p>Waves</p>
+    </div>
+    <div class="waves">
+      <div class="wave a" id="notification"></div>
+      <div class="wave b" id="notification"></div>
+      <div class="wave c" id="notification"></div>
+    </div>
+  </div>
+  <script>
+    const $button = document.getElementById('button');
+    const $bell = document.getElementById('notification');
+
+    $button.addEventListener('click', () => {
+      const count = Number($bell.getAttribute('data-count')) || 0;
+      $bell.setAttribute('data-count', count + 1);
+      $bell.classList.add('show-count');
+      $bell.classList.add('notify');
+    });
+
+    $bell.addEventListener('animationend', ()=> {
+      $bell.classList.remove('notify');
+    });
+  </script>
+</body>
+</html>
